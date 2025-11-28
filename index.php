@@ -35,7 +35,10 @@ switch ($request) {
     case '/api/login':
         require __DIR__ . '/api/login.php';
         break;
-
+    case '/api/posts':
+        require __DIR__ . '/api/posts.php';
+        break;
+        
     default:
         http_response_code(404);
         echo json_encode(["message" => "404 Not Found"]);
