@@ -1,4 +1,6 @@
 <?php
+
+
 require_once __DIR__ . '/../config/db.php';
 require __DIR__ . "/../vendor/autoload.php";
 
@@ -16,10 +18,16 @@ $content = $_POST['content'] ?? '';
 
 $imageUrl = null;
 
-//  Handle Image Upload
+// Handle Image Upload
 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
 
-    $fileName = time() . "_" . basename($_FILES['image']['name']);
+    // 1. ফাইল এক্সটেনশন বের করা
+    $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+    // 2. শুধুমাত্র টাইমস্ট্যাম্পকে ফাইল নাম হিসেবে ব্যবহার করা
+    // এটি হবে: [টাইমস্ট্যাম্প].[এক্সটেনশন], যেমন: 1765467641.jpg
+    $fileName = time() . "." . $extension;
+
     $targetDir = __DIR__ . "/../uploads/";
     $targetFile = $targetDir . $fileName;
 
@@ -29,7 +37,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
     }
 
     // Image URL for frontend access
-    $imageUrl = "http://localhost/server/uploads/" . $fileName;
+    $imageUrl = "http://localhost:8000/uploads/" . $fileName;
 }
 
 // Insert into Supabase Postgres
