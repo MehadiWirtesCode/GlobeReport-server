@@ -4,14 +4,14 @@ header("Content-Type: application/json");
 require_once __DIR__ . '/../config/db.php';
 
 try {
-    $stmt = $pdo->query("SELECT id, author, category, tags, content, image, created_at FROM cms ORDER BY id DESC");
+    $stmt = $pdo->query("SELECT id, author, category, tags, content, image, created_at FROM cms WHERE category = 'national' ORDER BY id DESC");
     $news = $stmt->fetchAll();
 
     // Format each news item for frontend
     $newsData = array_map(function($row){
         return [
             "id" => $row["id"],
-            "title" => $row["tags"],        
+            "title" => $row["tags"],
             "category" => $row["category"],
             "author" => $row["author"],
             "image" => $row["image"],

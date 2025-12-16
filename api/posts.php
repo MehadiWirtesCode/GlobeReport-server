@@ -21,11 +21,9 @@ $imageUrl = null;
 // Handle Image Upload
 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
 
-    // 1. ফাইল এক্সটেনশন বের করা
     $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
-    // 2. শুধুমাত্র টাইমস্ট্যাম্পকে ফাইল নাম হিসেবে ব্যবহার করা
-    // এটি হবে: [টাইমস্ট্যাম্প].[এক্সটেনশন], যেমন: 1765467641.jpg
+
     $fileName = time() . "." . $extension;
 
     $targetDir = __DIR__ . "/../uploads/";

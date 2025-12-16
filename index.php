@@ -1,5 +1,5 @@
 <?php
-// CORS Header গুলো ঠিক আছে
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -25,17 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// === সংশোধিত রাউটিং লজিক ===
-// SERVER_NAME এর পরে শুধুমাত্র পাথ অংশটুকু পার্স করা
+
 $request = rtrim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '/', '/');
 
-// যদি সার্ভারটি index.php ফাইলটিকে অন্তর্ভুক্ত করে, তবে এটি /server/index.php হতে পারে।
-// আমরা নিশ্চিত করতে চাই যে এটি রিকোয়েস্ট URI এর সাথে ম্যাচ করে।
+
 if (strpos($request, '/index.php') !== false) {
-    // index.php অংশটি বাদ দিন যদি এটি পাথে থাকে (এটি প্রায়শই বিল্ট-ইন সার্ভারে ঘটে)
+
     $request = str_replace('/index.php', '', $request);
 }
-// চূড়ান্তভাবে রিকোয়েস্ট URI কে স্ল্যাশ ছাড়া পরিষ্কার করুন
+
 $request = rtrim($request, '/');
 
 
@@ -53,13 +51,22 @@ switch ($request) {
         require __DIR__ . '/api/login.php';
         break;
     case '/api/posts':
-        // posts.php এর জন্য
+
         require __DIR__ . '/api/posts.php';
         break;
 
     case '/api/getAllNews':
-        // getAllNews.php এর জন্য
+
         require __DIR__ . '/api/getAllNews.php';
+        break;
+
+    case '/api/getNationalNews':
+
+        require __DIR__ . '/api/getNationalNews.php';
+        break;
+      case '/api/getInternationalNews':
+
+        require __DIR__ . '/api/getInternationalNews.php';
         break;
 
     default:
