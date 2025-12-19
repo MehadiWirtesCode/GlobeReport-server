@@ -8,7 +8,16 @@ A simple and lightweight **PHP-based web application** integrated with **Supabas
 This project demonstrates how to connect a PHP backend with Supabase using environment-based configuration.
 
 ---
-
+## 📖 Table of Contents
+- [📸 UI Preview](#-ui-preview)
+- [✨ Features](#-features)
+- [🛠 Tech Stack](#-tech-stack)
+- [⚙️ Prerequisites](#-prerequisites)
+- [🚀 Getting Started](#-getting-started)
+- [📡 API Endpoints](#-api-endpoints)
+- [🗄️ Database Structure](#-database-structure)
+- [📄 License](#-license)
+---
 ## 📸 UI Preview
 
 <p align="center">
@@ -25,16 +34,6 @@ This project demonstrates how to connect a PHP backend with Supabase using envir
 
 </p>
 
----
-
-## 📖 Table of Contents
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [API Endpoints](#-api-endpoints)
-- [License](#-license)
-- [Author](#-author)
 ---
 
 ## ✨ Features
