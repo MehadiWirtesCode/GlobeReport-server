@@ -9,6 +9,24 @@ This project demonstrates how to connect a PHP backend with Supabase using envir
 
 ---
 
+## 📸 UI Preview
+
+<p align="center">
+  <img width="1796" height="944" alt="{1FDF82BB-5468-46A7-84F3-D95DFE5DB615}" src="https://github.com/user-attachments/assets/4cb6e8b9-7a6f-4c23-a993-4b8316371547" />
+ <img width="935" height="747" alt="{B1B1AB59-10DC-4258-A05A-606C8BE64A6D}" src="https://github.com/user-attachments/assets/78ac3883-b5f8-45a0-a69c-1fa61e2d60f0" />
+  <img width="1466" height="778" alt="{D5CE0819-18E3-47BE-B669-7DD708C3F711}" src="https://github.com/user-attachments/assets/2b644df1-51d2-45a1-bcf8-caeaf88b39b5" />
+
+ <img width="1902" height="908" alt="{D02F426C-C42A-4C3A-AFEB-C418CD7183F1}" src="https://github.com/user-attachments/assets/e2f6e991-c9da-4e44-a1de-2a51ad0ffd98" />
+<img width="1715" height="940" alt="{8124E102-39AD-4E97-9456-CD5FD17F1EBC}" src="https://github.com/user-attachments/assets/321c8f2e-1df5-413d-9792-dd3bfbd4e7c1" />
+
+</p>
+<p align="center">
+  <img width="341" height="737" alt="{F245C9DC-D1BB-4B4E-80F5-BAD11661D830}" src="https://github.com/user-attachments/assets/79f4b405-9db0-4016-bde8-e35df81af19b" />
+
+</p>
+
+---
+
 ## 📖 Table of Contents
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
