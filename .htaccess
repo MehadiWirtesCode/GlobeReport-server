@@ -1,8 +1,6 @@
 RewriteEngine On
 
-# রিকোয়েস্টটি যদি সরাসরি কোনো ফাইল বা ফোল্ডার না হয়
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# তবে সব রিকোয়েস্টকে index.php ফাইলে পাঠিয়ে দাও
 RewriteRule ^ index.php [L,QSA]

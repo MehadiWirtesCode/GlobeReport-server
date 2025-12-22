@@ -19,6 +19,35 @@ if (!$level || !$amount || !$email) {
 }
 
 try {
+
+    $checkSql = "SELECT created_at FROM subscription WHERE email = :email AND level = :level ORDER BY created_at DESC LIMIT 1";
+    $checkStmt = $pdo->prepare($checkSql);
+    $checkStmt->execute(['email' => $email, 'level' => $level]);
+    $lastSubscription = $checkStmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($lastSubscription) {
+        $lastDate = new DateTime($lastSubscription['created_at']);
+        $currentDate = new DateTime();
+        $interval = $lastDate->diff($currentDate);
+
+
+        if ($level === 'basic' || $level === 'premium') {
+
+            if ($interval->m < 1 && $interval->y == 0) {
+                http_response_code(409);
+                echo json_encode(["message" => "You can buy this subscription again after 1 month."]);
+                exit;
+            }
+        } elseif ($level === 'gold') {
+
+            if ($interval->y < 3) {
+                http_response_code(409);
+                echo json_encode(["message" => "You can buy Gold subscription again after 3 years."]);
+                exit;
+            }
+        }
+    }
+
     $sql = "INSERT INTO subscription (level, amount, email) VALUES (:level, :amount, :email)";
     $stmt = $pdo->prepare($sql);
 
@@ -34,6 +63,6 @@ try {
     }
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(["message" => "Error: " . $e->getMessage()]);
+    echo json_encode(["message" => "Database Error: " . $e->getMessage()]);
 }
 exit;
